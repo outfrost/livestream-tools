@@ -15,20 +15,34 @@ fi
 
 mkdir -p "$LOG_DIR"
 
+echo "Starting chat bot"
 $BOT_COMMAND \
-	> "$LOG_DIR/start-phantombot.log" 2>&1
-google-chrome \
+	> "$LOG_DIR/bot.log" 2>&1
+
+echo "Waiting up for chat bot's server to get ready"
+sleep 3
+
+echo "Starting Streamlabs recent events window"
+kstart5 -- google-chrome \
 	--app='https://streamlabs.com/dashboard/recent-events' \
 	> "$LOG_DIR/streamlabs.log" 2>&1
-google-chrome \
+
+echo "Starting Twitch chat window"
+kstart5 -- google-chrome \
 	--app="https://twitch.tv/popout/$TWITCH_CHANNEL/chat" \
 	> "$LOG_DIR/twitch-chat.log" 2>&1
-google-chrome \
+
+echo "Starting Nightbot dashboard"
+kstart5 -- google-chrome \
 	--app='https://beta.nightbot.tv/dashboard' \
 	> "$LOG_DIR/nightbot.log" 2>&1
+
+echo "Starting OBS Studio"
 kstart5 obs \
 	> "$LOG_DIR/obs.log" 2>&1
-google-chrome \
+
+echo "Starting Twitch live dashboard and bot dashboard"
+kstart5 -- google-chrome \
 	--new-window \
 	"https://www.twitch.tv/$TWITCH_CHANNEL/dashboard/live" \
 	'http://localhost:25000/panel' \
