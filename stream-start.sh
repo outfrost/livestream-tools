@@ -6,7 +6,7 @@ if [ -z "$BOT_COMMAND" ]; then
 	if [ -z "$BOT_DESKTOP_FILE" ]; then
 		BOT_DESKTOP_FILE="$HOME/.local/share/applications/PhantomBot.desktop"
 	fi
-	BOT_COMMAND="kstart5 --service \'$BOT_DESKTOP_FILE\'"
+	BOT_COMMAND="kstart5 --service $BOT_DESKTOP_FILE"
 fi
 
 if [ -z "$LOG_DIR" ]; then
