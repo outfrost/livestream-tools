@@ -32,21 +32,6 @@ kstart5 -- google-chrome \
 	--app="https://twitch.tv/popout/$TWITCH_CHANNEL/chat" \
 	> "$LOG_DIR/twitch-chat.log" 2>&1
 
-echo "Starting Twitch stream health window"
-kstart5 -- google-chrome \
-	--app="https://www.twitch.tv/popout/outfr0st/dashboard/live/stream-health" \
-	> "$LOG_DIR/twitch-stream-health.log" 2>&1
-
-echo "Starting Twitch video preview window"
-kstart5 -- google-chrome \
-	--app="https://www.twitch.tv/popout/outfr0st/dashboard/live/video-preview" \
-	> "$LOG_DIR/twitch-video-preview.log" 2>&1
-
-echo "Starting Twitch stream markers window"
-kstart5 -- google-chrome \
-	--app="https://www.twitch.tv/popout/outfr0st/dashboard/live/stream-marker" \
-	> "$LOG_DIR/twitch-stream-markers.log" 2>&1
-
 echo "Starting Nightbot dashboard"
 kstart5 -- google-chrome \
 	--app='https://beta.nightbot.tv/dashboard' \
