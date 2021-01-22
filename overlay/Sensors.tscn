@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sensors.gd" type="Script" id=1]
+[ext_resource path="res://SensorWidget.tscn" type="PackedScene" id=2]
 
 [node name="Sensors" type="Node"]
 script = ExtResource( 1 )
@@ -8,12 +9,40 @@ script = ExtResource( 1 )
 [node name="RefreshTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Label" type="Label" parent="."]
-margin_left = 287.675
-margin_top = 209.763
-margin_right = 327.675
-margin_bottom = 223.763
-rect_scale = Vector2( 4, 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CpuUsageWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+sensor_label = "CPU"
+
+[node name="MemUsageWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+margin_left = 189.628
+margin_right = 469.628
+type = 1
+sensor_label = "mem"
+
+[node name="SwapUsageWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+margin_left = 505.77
+margin_right = 785.77
+type = 2
+sensor_label = "swap"
+
+[node name="CpuTctlWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+margin_left = 815.92
+margin_right = 1095.92
+type = 3
+sensor_label = "CPU Tctl"
+temperature_sensor_path = "/sys/class/hwmon/hwmon1/temp1_input"
