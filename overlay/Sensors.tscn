@@ -21,8 +21,8 @@ anchor_left = 0.216162
 anchor_top = 0.815745
 anchor_right = 0.216162
 anchor_bottom = 0.815745
-margin_left = 189.628
-margin_right = 469.628
+margin_left = 107.777
+margin_right = 287.776
 type = 1
 sensor_label = "mem"
 
@@ -31,8 +31,8 @@ anchor_left = 0.216162
 anchor_top = 0.815745
 anchor_right = 0.216162
 anchor_bottom = 0.815745
-margin_left = 505.77
-margin_right = 785.77
+margin_left = 307.051
+margin_right = 487.051
 type = 2
 sensor_label = "swap"
 
@@ -41,8 +41,41 @@ anchor_left = 0.216162
 anchor_top = 0.815745
 anchor_right = 0.216162
 anchor_bottom = 0.815745
-margin_left = 815.92
-margin_right = 1095.92
+margin_left = 503.33
+margin_right = 683.33
 type = 3
 sensor_label = "CPU Tctl"
 temperature_sensor_path = "/sys/class/hwmon/hwmon1/temp1_input"
+
+[node name="GpuJunctionWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+margin_left = 701.106
+margin_right = 881.106
+type = 3
+sensor_label = "GPU junction"
+temperature_sensor_path = "/sys/class/hwmon/hwmon3/temp2_input"
+
+[node name="GpuEdgeWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+margin_left = 900.381
+margin_right = 1080.38
+type = 3
+sensor_label = "GPU edge"
+temperature_sensor_path = "/sys/class/hwmon/hwmon3/temp1_input"
+
+[node name="VramTempWidget" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.216162
+anchor_top = 0.815745
+anchor_right = 0.216162
+anchor_bottom = 0.815745
+margin_left = 1096.66
+margin_right = 1276.66
+type = 3
+sensor_label = "VRAM"
+temperature_sensor_path = "/sys/class/hwmon/hwmon3/temp3_input"
